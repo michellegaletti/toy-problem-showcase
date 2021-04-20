@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 
-export default class Sum extends Component {
+export default class Multiply extends Component {
   constructor() {
     super();
     this.state = {
       number1: 0,
       number2: 0,
-      sum: null,
+      product: null,
     };
   }
-
   updateNumber1(event) {
     this.setState({ number1: parseInt(event, 10) });
   }
@@ -18,17 +17,17 @@ export default class Sum extends Component {
     this.setState({ number2: parseInt(event, 10) });
   }
 
-  add(num1, num2) {
-    let sum = 0;
+  multiply(num1, num2) {
+    let product = 0;
 
-    sum = num1 + num2;
-    this.setState({ sum: sum });
+    product = num1 * num2;
+    this.setState({ product: product });
   }
 
   render() {
     return (
-      <div className="puzzleBox sumPB">
-        <h4> Sum </h4>
+      <div className="puzzleBox productPB">
+        <h4> Multiply </h4>
         <input
           className="inputLine"
           onChange={(e) => this.updateNumber1(e.target.value)}
@@ -39,11 +38,11 @@ export default class Sum extends Component {
         />
         <button
           className="confirmationButton"
-          onClick={() => this.add(this.state.number1, this.state.number2)}
+          onClick={() => this.multiply(this.state.number1, this.state.number2)}
         >
-          Add
+          Multiply
         </button>
-        <span className="resultsBox">Sum: {this.state.sum}</span>
+        <span className="resultsBox">Product: {this.state.product}</span>
       </div>
     );
   }
